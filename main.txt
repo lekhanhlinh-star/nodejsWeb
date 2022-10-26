@@ -1,0 +1,6 @@
+database=mysql.connector.connect(
+    host="localhost",
+    user="root",
+    password="22032002it",
+    database="shoes"
+)
