@@ -1,0 +1,97 @@
+/*khai bao bien*/
+
+ :root {
+    --text--color: #333;
+    --text--w: #f2f2f2;
+    --backcolor--: #333;
+}
+
+
+/*set cho ca trang*/
+
+* {
+    box-sizing: inherit;
+    padding: 0;
+    margin: 0;
+}
+
+html {
+    /*HACK*/
+    font-size: 62.5%;
+    line-height: 1.7rem;
+    font-family: 'Roboto', sans-serif;
+    box-sizing: border-box;
+}
+
+.grid {
+    width: 1520;
+    max-width: 100%;
+    margin-top: 0 auto;
+}
+
+.grid__full-width {
+    width: 100%;
+}
+
+.grid_row {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+
+/*animation*/
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes change {
+    0% {
+        background-image: url(https://contents.mediadecathlon.com/p2155510/2d4c941c14f1be10172d8977107329a6/p2155510.jpg?format=auto&quality=70&f=650x0);
+    }
+    20% {
+        background-image: url(https://images.meesho.com/images/products/44009963/kxwus_512.jpg);
+    }
+    40% {
+        background-image: url(https://ichef.bbci.co.uk/news/976/cpsprodpb/B9FF/production/_117751674_satan-shoes1.jpg);
+    }
+    60% {
+        background-image: url(https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/best-running-shoes-1648630488.jpg);
+    }
+    80% {
+        background-image: url(https://media.wired.com/photos/5fa5c9e7ba670daaf8e97a79/master/w_1280,c_limit/Gear-Xero-HFS-SOURCE-Xero-Shoes.jpg);
+    }
+    100% {
+        background-image: url(https://thumbs.dreamstime.com/b/banner-classic-men-leather-blue-shoes-gray-background-casual-close-up-222969668.jpg);
+    }
+}
+
+@keyframes fade_position {
+    from {
+        right: 0%
+    }
+    to {
+        right: 100%
+    }
+}
+
+
+/*responsive*/
+
+@media(max-width: 767px) {
+    .footer-col {
+        width: 50%;
+        margin-bottom: 30px;
+    }
+}
+
+@media(max-width: 574px) {
+    .footer-col {
+        width: 100%;
+    }
+}

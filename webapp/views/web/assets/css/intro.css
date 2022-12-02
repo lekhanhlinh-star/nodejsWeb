@@ -1,0 +1,41 @@
+.intro-main {
+    background-color: #333;
+}
+
+.member {
+    width: 100%;
+}
+
+.content-menber {
+    font-size: 15px;
+    height: 0px;
+    background-color: black;
+    background-position: center;
+    font-family: 'Josefin Sans', sans-serif;
+}
+
+.content-menber h1 {
+    color: white;
+    margin: 0px;
+    font-size: 50px;
+    position: relative;
+    bottom: 520px;
+    left: 74px;
+}
+
+.content-menber h3 {
+    color: white;
+    font-size: 25px;
+    position: relative;
+    bottom: 500px;
+    left: 110px;
+}
+
+.content-menber h4 {
+    color: #fcfc;
+    letter-spacing: 2px;
+    font-size: 20px;
+    position: relative;
+    bottom: 543px;
+    left: 80px;
+}

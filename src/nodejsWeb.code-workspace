@@ -1,0 +1,14 @@
+{
+	"folders": [
+		{
+			"path": ".."
+		},
+		{
+			"name": "nodejsWeb @ 2525f4a",
+			"uri": "gitlens://7b22726566223a2232353235663461393631373261363366363131303133323533623865633732363866313461353337222c227265706f50617468223a22633a2f55736572732f32303131302f4f6e6544726976652f446f63756d656e74732f4769744875622f6e6f64656a73576562227d/c:/Users/20110/OneDrive/Documents/GitHub/nodejsWeb?{\"ref\":\"2525f4a\"}"
+		}
+	],
+	"settings": {
+		"liveServer.settings.multiRootWorkspaceName": "nodejsWeb"
+	}
+}

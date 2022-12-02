@@ -1,0 +1,96 @@
+/*login form*/
+
+.text_left {
+    font-family: 'Fasthand', cursive;
+    font-size: 40px;
+    line-height: 60px;
+}
+
+.main_logiform {
+    display: flex;
+    justify-content: center;
+    background-image: url(https://top10tphcm.com/wp-content/uploads/2021/08/shop-giay-dep-nu-dep-o-quan-6.jpg);
+}
+
+.loginform {
+    display: flex;
+    width: 1040px;
+    height: 600px;
+    background-color: #ffff;
+}
+
+.loginform .loginform__left {
+    width: 640px;
+    height: 482px;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.loginform .loginform__left h2 {
+    position: relative;
+    left: 40%;
+}
+
+.loginform .loginform__left h3 {
+    position: relative;
+    left: 25%;
+}
+
+.loginform__left img {
+    width: 100%;
+    height: auto;
+    padding: auto;
+}
+
+.loginform .loginform__right {
+    width: 400px;
+    height: 482px;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    padding: 20px;
+    line-height: 25px;
+}
+
+.loginform .loginform__right .loginform__right-body {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.loginform__right-header {
+    position: relative;
+    bottom: 10%;
+    left: 40%;
+}
+
+.inputlogin {
+    height: 40px;
+    font-weight: bold;
+}
+
+.inputlogin+.inputlogin {
+    margin-top: 20px;
+}
+
+.textfoget {
+    position: relative;
+    left: 60%;
+    font-size: 15px;
+    top: 5px;
+    bottom: 5px;
+    color: red;
+}
+
+.loginform__right-body p {
+    position: relative;
+    left: 46%;
+    font-size: 20px;
+}
+
+.login3 {
+    display: inline-flex;
+    height: 10px;
+    justify-content: space-around;
+}
