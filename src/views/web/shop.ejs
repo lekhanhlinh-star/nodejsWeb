@@ -19,7 +19,9 @@
 
     <link rel="stylesheet" href="/web/css/style.css">
     
+    
   </head>
+
   <body>
     <script>!(function () {
       let e = document.createElement("script"),
@@ -133,7 +135,7 @@
 
             <div class="row">
               <div class="col-md-12 mb-5">
-                <div class="float-md-left mb-4"><h2 class="text-black h5">Shop All</h2></div>
+                <div class="float-md-left mb-4"><h2 class="text-black h5">Page <%= idpages %> </h2></div>
                 <div class="d-flex">
                   <div class="dropdown mr-1 ml-md-auto">
                     <button type="button" class="btn btn-secondary btn-sm dropdown-toggle" id="dropdownMenuOffset" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -222,7 +224,7 @@
                   </div>
                 </div>
               </div> -->
-              <% for( let index = 0; index < 9; index++ ) { %>
+              <% for( let index = 0; index <dataProduct.length ; index++ ) { %>
                 <div class="col-sm-6 col-lg-4 mb-4" data-aos="fade-up">
                   <div class="block-4 text-center border">
                     <figure class="block-4-image">
@@ -328,21 +330,37 @@
             </div>
             <div class="row" data-aos="fade-up">
               <div class="col-md-12 text-center">
-                <div class="site-block-27">
-                  <ul>
-                    <li><a href="#">&lt;</a></li>
-                    <li class="active"><span>1</span></li>
-                    <li><a href="#">2</a></li>
-                    <li><a href="#">3</a></li>
-                    <li><a href="#">4</a></li>
-                    <li><a href="#">5</a></li>
-                    <li><a href="#">&gt;</a></li>
+                <div id="" class="site-block-27">
+                  <!-- <ul></ul> -->
+                  <ul  >
+                    <div id="myDIV">
+                      <li> <a href="#">&lt;</a></li>
+                      <% for( let index = 0; index < len; index++ ) { %>
+                        <li class="choose"> <a href="/shop/pages/<%= index+1 %> "> <%= index+1 %> </a> </li>
+                      
+                      <% } %>
+               
+
+                    </div>
+                   
                   </ul>
                 </div>
               </div>
             </div>
           </div>
-
+          <script>
+            // Add active class to the current button (highlight it)
+            var header = document.getElementById("myDIV");
+            var btns = header.getElementsByClassName("choose");
+            for (var i = 0; i < btns.length; i++) {
+              btns[i].addEventListener("click", function() {
+              var current = document.getElementsByClassName("active");
+              current[0].className = current[0].className.replace(" active", "");
+              this.className += " active";
+              });
+            }
+            var btnContainer = document.getElementById("myDIV");
+            </script>
           <div class="col-md-3 order-1 mb-5 mb-md-0">
             <div class="border p-4 rounded mb-4">
               <h3 class="mb-3 h6 text-uppercase text-black d-block">Categories</h3>

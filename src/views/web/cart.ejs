@@ -18,6 +18,10 @@
     <link rel="stylesheet" href="/web/css/aos.css">
 
     <link rel="stylesheet" href="/web/css/style.css">
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/toastr.js/2.0.2/css/toastr.min.css">
+  <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/toastr.js/2.0.2/js/toastr.min.js"></script>
+
     
   </head>
   <script>!(function () {
@@ -42,7 +46,7 @@
   localStorage.clear();
       </script>
   <body>
-  
+    
   <div class="site-wrap">
     <header class="site-navbar" role="banner">
       <div class="site-navbar-top">
@@ -128,7 +132,7 @@
     <div class="site-section">
       <div class="container">
         <div class="row mb-5">
-          <form class="col-md-12" method="post">
+          <form class="col-md-12" method="post" action="/updateCart">
             <div class="site-blocks-table">
               <table class="table table-bordered">
                 <thead>
@@ -142,65 +146,55 @@
                   </tr>
                 </thead>
                 <tbody>
-                  <tr>
-                    <td class="product-thumbnail">
-                      <img src="/web/images/cloth_1.jpg" alt="Image" class="img-fluid">
-                    </td>
-                    <td class="product-name">
-                      <h2 class="h5 text-black"><%= dataProduct[0].name %> </h2>
-                    </td>
-                    <td>$49.00</td>
-                    <td>
-                      <div class="input-group mb-3" style="max-width: 120px;">
-                        <div class="input-group-prepend">
-                          <button class="btn btn-outline-primary js-btn-minus" type="button">&minus;</button>
-                        </div>
-                        <input type="text" class="form-control text-center" value="1" placeholder="" aria-label="Example text with button addon" aria-describedby="button-addon1">
-                        <div class="input-group-append">
-                          <button class="btn btn-outline-primary js-btn-plus" type="button">&plus;</button>
-                        </div>
-                      </div>
+                  <% for( let index = 0; index < data.length; index++ ) { %>
+                    
+                    <input type="hidden"  name="OrderIndex" value="<%= data[index].order_id %>">
+                  <input type="hidden" name="idproduct" value="<%= data[index].idProduct %> ">
+                    
 
-                    </td>
-                    <td>$49.00</td>
-                    <td><a href="#" class="btn btn-primary btn-sm">X</a></td>
-                  </tr>
-
-                  <tr>
-                    <td class="product-thumbnail">
-                      <img src="/web/images/cloth_2.jpg" alt="Image" class="img-fluid">
-                    </td>
-                    <td class="product-name">
-                      <h2 class="h5 text-black">Polo Shirt</h2>
-                    </td>
-                    <td>$49.00</td>
-                    <td>
-                      <div class="input-group mb-3" style="max-width: 120px;">
-                        <div class="input-group-prepend">
-                          <button class="btn btn-outline-primary js-btn-minus" type="button">&minus;</button>
+                  
+                    <tr>
+                      <td class="product-thumbnail">
+                        <img src="/web/images/cloth_1.jpg" alt="Image" class="img-fluid">
+                      </td>
+                      <td class="product-name">
+                        <h2 class="h5 text-black"><%= data[index].name %> </h2> 
+                      </td>
+                      <td>$<%= data[0].price %> </td>
+                      <td>
+                        <div class="input-group mb-3" style="max-width: 120px;">
+                          <div class="input-group-prepend">
+                            <button class="btn btn-outline-primary js-btn-minus" type="button">&minus;</button>
+                          </div>
+                          <input type="text" class="form-control text-center" name="quantity" value="<%=data[index].quantity %>" placeholder="" aria-label="Example text with button addon" aria-describedby="button-addon1">
+                          <div class="input-group-append">
+                            <button class="btn btn-outline-primary js-btn-plus" type="button">&plus;</button>
+                          </div>
                         </div>
-                        <input type="text" class="form-control text-center" value="1" placeholder="" aria-label="Example text with button addon" aria-describedby="button-addon1">
-                        <div class="input-group-append">
-                          <button class="btn btn-outline-primary js-btn-plus" type="button">&plus;</button>
-                        </div>
-                      </div>
+  
+                      </td>
+                      <td>$<%= (data[index].price) * (data[index].quantity) %> </td>
+                      <td><a href="deleteItemInCart/<%= data[index].order_id %>" class="btn btn-primary btn-sm" >X</a></td>
+                    </tr>
+                  
+                  <% } %>
+                
 
-                    </td>
-                    <td>$49.00</td>
-                    <td><a href="#" class="btn btn-primary btn-sm">X</a></td>
-                  </tr>
                 </tbody>
               </table>
             </div>
-          </form>
+       
         </div>
+        
 
         <div class="row">
           <div class="col-md-6">
             <div class="row mb-5">
               <div class="col-md-6 mb-3 mb-md-0">
-                <button class="btn btn-primary btn-sm btn-block">Update Cart</button>
+                <button class="btn btn-primary btn-sm btn-block" type="submit">Update Cart</button>
               </div>
+      </form>
+
               <div class="col-md-6">
                 <a href="/shop">  <button class="btn btn-outline-primary btn-sm btn-block">Continue Shopping</button></a>
                
@@ -246,7 +240,7 @@
 
                 <div class="row">
                   <div class="col-md-12">
-                    <button class="btn btn-primary btn-lg py-3 btn-block" onclick="window.location='checkout.html'">Proceed To Checkout</button>
+                    <button class="btn btn-primary btn-lg py-3 btn-block" onclick="window.location='/CheckOut'">Proceed To Checkout</button>
                   </div>
                 </div>
               </div>
