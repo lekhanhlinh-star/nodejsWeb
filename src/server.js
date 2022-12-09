@@ -29,24 +29,16 @@ app.use(session({
 	resave: true,
 	saveUninitialized: true
 }));
-app.use(flash());
-
-app.use(toastr());
-
-app.use(function (req, res, next)
-{
-    res.locals.toasts = req.toastr.render()
-    next()
-})
 ConfigViewEngine(app);
 initWebRoute(app);
 initAdminRoute(app);
-// app.use((req,res)=>{
-// 	return res.render("./web/NotFound.ejs")
-// })
-// app.get("/",(req,res)=>{
-// 	res.render("./web/login.ejs")
-// })
+app.get("/",(req,res)=>{
+	res.render("./web/login.ejs")
+})
+app.use((req,res)=>{
+	return res.render("./web/NotFound.ejs")
+})
+
 
 
 app.listen(port, () => {

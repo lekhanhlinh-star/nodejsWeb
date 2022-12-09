@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Mukta:300,400,700"> 
-    <link rel="stylesheet" href="fonts/icomoon/style.css">
+    <link rel="stylesheet" href="/web/fonts/icomoon/style.css">
 
     <link rel="stylesheet" href="/web/css/bootstrap.min.css">
     <link rel="stylesheet" href="/web/css/magnific-popup.css">
@@ -37,7 +37,7 @@
 
             <div class="col-12 mb-3 mb-md-0 col-md-4 order-1 order-md-2 text-center">
               <div class="site-logo">
-                <a href="index.html" class="js-logo-clone">Shoppers</a>
+                <a href="/home" class="js-logo-clone">Shoppers</a>
               </div>
             </div>
 
@@ -47,9 +47,9 @@
                   <li><a href="#"><span class="icon icon-person"></span></a></li>
                   <li><a href="#"><span class="icon icon-heart-o"></span></a></li>
                   <li>
-                    <a href="cart.html" class="site-cart">
+                    <a href="/cart" class="site-cart">
                       <span class="icon icon-shopping_cart"></span>
-                      <span class="count">2</span>
+                      <span class="count"></span>
                     </a>
                   </li> 
                   <li class="d-inline-block d-md-none ml-md-0"><a href="#" class="site-menu-toggle js-menu-toggle"><span class="icon-menu"></span></a></li>
@@ -64,7 +64,7 @@
         <div class="container">
           <ul class="site-menu js-clone-nav d-none d-md-block">
             <li class="has-children">
-              <a href="index.html">Home</a>
+              <a href="/home">Home</a>
               <ul class="dropdown">
                 <li><a href="#">Menu One</a></li>
                 <li><a href="#">Menu Two</a></li>
@@ -80,17 +80,17 @@
               </ul>
             </li>
             <li class="has-children">
-              <a href="about.html">About</a>
+              <a href="/about">About</a>
               <ul class="dropdown">
                 <li><a href="#">Menu One</a></li>
                 <li><a href="#">Menu Two</a></li>
                 <li><a href="#">Menu Three</a></li>
               </ul>
             </li>
-            <li><a href="shop.html">Shop</a></li>
+            <li><a href="/shop">Shop</a></li>
             <li><a href="#">Catalogue</a></li>
             <li><a href="#">New Arrivals</a></li>
-            <li><a href="contact.html">Contact</a></li>
+            <li><a href="/contact">Contact</a></li>
           </ul>
         </div>
       </nav>
@@ -99,7 +99,7 @@
     <div class="bg-light py-3">
       <div class="container">
         <div class="row">
-          <div class="col-md-12 mb-0"><a href="index.html">Home</a> <span class="mx-2 mb-0">/</span> <a href="cart.html">Cart</a> <span class="mx-2 mb-0">/</span> <strong class="text-black">Checkout</strong></div>
+          <div class="col-md-12 mb-0"><a href="/home">Home</a> <span class="mx-2 mb-0">/</span> <a href="/cart">Cart</a> <span class="mx-2 mb-0">/</span> <strong class="text-black">Checkout</strong></div>
         </div>
       </div>
     </div>
@@ -117,7 +117,7 @@
           <div class="col-md-6 mb-5 mb-md-0">
             <h2 class="h3 mb-3 text-black">Billing Details</h2>
             <div class="p-3 p-lg-5 border">
-
+              <form action="/paypal" method="post">
               <div class="form-group row">
                 <div class="col-md-6">
                   <label for="c_fname" class="text-black">Full Name <span class="text-danger">*</span></label>
@@ -134,7 +134,7 @@
               <div class="form-group row">
                 <div class="col-md-12">
                   <label for="c_address" class="text-black">Address <span class="text-danger">*</span></label>
-                  <input type="text" class="form-control" id="c_address" name="c_address" placeholder="Street address">
+                  <input type="text" class="form-control" id="c_address" name="c_address"  value="<%= data_user[0].address %>" placeholder="Street address">
                 </div>
               </div>
 
@@ -148,7 +148,7 @@
                 </div>
                 <div class="col-md-6">
                   <label for="c_phone" class="text-black">Phone <span class="text-danger">*</span></label>
-                  <input type="text" class="form-control" id="c_phone" name="c_phone" placeholder="Phone Number">
+                  <input type="text" class="form-control" id="c_phone" name="c_phone" value="<%= data_user[0].phone %>" placeholder="Phone Number">
                 </div>
               </div>
 
@@ -255,7 +255,7 @@
                 </div>
               </div>
             </div>
-            <form action="/paypal" method="post">
+           
                           <div class="row mb-5">
               <div class="col-md-12">
                 <h2 class="h3 mb-3 text-black">Your Order</h2>
@@ -298,11 +298,12 @@
                       </div>
                     </div>
                   </div>
+                  <div class="form-group">
+                    <button class="btn btn-primary btn-lg py-3 btn-block" onclick="window.location='thankyou.html'">Pay</button>
+                  </div>
                 </form>
 
-                  <div class="form-group">
-                    <button class="btn btn-primary btn-lg py-3 btn-block" onclick="window.location='thankyou.html'">Place Order</button>
-                  </div>
+
 
                 </div>
               </div>

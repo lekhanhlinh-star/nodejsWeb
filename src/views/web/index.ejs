@@ -50,9 +50,9 @@
           <div class="row align-items-center">
 
             <div class="col-6 col-md-4 order-2 order-md-1 site-search-icon text-left">
-              <form action="" class="site-block-top-search">
+              <form action="/searchProductsByName" class="site-block-top-search" method="post">
                 <span class="icon icon-search2"></span>
-                <input type="text" class="form-control border-0" placeholder="Search">
+                <input type="text" class="form-control border-0" placeholder="Search" name="SearchString">
               </form>
             </div>
 
@@ -70,7 +70,7 @@
                   <li>
                     <a href="/cart" class="site-cart">
                       <span class="icon icon-shopping_cart"></span>
-                      <span class="count">2</span>
+                      <span class="count"></span>
                     </a>
                   </li> 
                   <li class="d-inline-block d-md-none ml-md-0"><a href="#" class="site-menu-toggle js-menu-toggle"><span class="icon-menu"></span></a></li>
@@ -101,17 +101,17 @@
               </ul>
             </li>
             <li class="has-children">
-              <a href="about.html">About</a>
+              <a href="/about">About</a>
               <ul class="dropdown">
                 <li><a href="#">Menu One</a></li>
                 <li><a href="#">Menu Two</a></li>
                 <li><a href="#">Menu Three</a></li>
               </ul>
             </li>
-            <li><a href="/shop">Shop</a></li>
+            <li><a href="/shop/pages/1">Shop</a></li>
             <li><a href="#">Catalogue</a></li>
             <li><a href="#">New Arrivals</a></li>
-            <li><a href="contact.html">Contact</a></li>
+            <li><a href="/contact">Contact</a></li>
           </ul>
         </div>
       </nav>
@@ -243,7 +243,7 @@
               <div class="item">
                 <div class="block-4 text-center">
                   <figure class="block-4-image">
-                    <img src="/web/images/shoe.png" alt="Image placeholder" class="img-fluid">
+                    <img src="/web/<%= dataProduct[index].image_pd %> " alt="Image placeholder" class="img-fluid">
                   </figure>
                   <div class="block-4-text p-4">
                     <h3><a href="/shop-single/<%= dataProduct[index].idProducts %> "> <%= dataProduct[index].manufacturer%></a></h3>
@@ -279,7 +279,7 @@
             <h2><a href="#">50% less in all items</a></h2>
             <p class="post-meta mb-4">By <a href="#">Carl Smith</a> <span class="block-8-sep">&bullet;</span> September 3, 2018</p>
             <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quisquam iste dolor accusantium facere corporis ipsum animi deleniti fugiat. Ex, veniam?</p>
-            <p><a href="#" class="btn btn-primary btn-sm">Shop Now</a></p>
+            <p><a href="/shop" class="btn btn-primary btn-sm">Shop Now</a></p>
           </div>
         </div>
       </div>

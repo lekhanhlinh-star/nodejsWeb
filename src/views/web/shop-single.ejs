@@ -19,7 +19,9 @@
 
     <link rel="stylesheet" href="/web/css/style.css">
     
+    
   </head>
+  
   <body>
   
   <div class="site-wrap">
@@ -29,9 +31,9 @@
           <div class="row align-items-center">
 
             <div class="col-6 col-md-4 order-2 order-md-1 site-search-icon text-left">
-              <form action="" class="site-block-top-search">
+              <form action="/searchProductsByName" class="site-block-top-search" method="post">
                 <span class="icon icon-search2"></span>
-                <input type="text" class="form-control border-0" placeholder="Search">
+                <input type="text" class="form-control border-0" placeholder="Search" name="SearchString">
               </form>
             </div>
 
@@ -49,7 +51,7 @@
                   <li>
                     <a href="/cart" class="site-cart">
                       <span class="icon icon-shopping_cart"></span>
-                      <span class="count">2</span>
+                      <span class="count"></span>
                     </a>
                   </li> 
                   <li class="d-inline-block d-md-none ml-md-0"><a href="#" class="site-menu-toggle js-menu-toggle"><span class="icon-menu"></span></a></li>
@@ -80,17 +82,17 @@
               </ul>
             </li>
             <li class="has-children">
-              <a href="about.html">About</a>
+              <a href="/about">About</a>
               <ul class="dropdown">
                 <li><a href="#">Menu One</a></li>
                 <li><a href="#">Menu Two</a></li>
                 <li><a href="#">Menu Three</a></li>
               </ul>
             </li>
-            <li class="active"><a href="shop.html">Shop</a></li>
+            <li class="active"><a href="/shop">Shop</a></li>
             <li><a href="#">Catalogue</a></li>
             <li><a href="#">New Arrivals</a></li>
-            <li><a href="contact.html">Contact</a></li>
+            <li><a href="/contact">Contact</a></li>
           </ul>
         </div>
       </nav>
@@ -108,8 +110,10 @@
       <div class="container">
         <div class="row">
           <div class="col-md-6">
-            <img src="/web/images/cloth_1.jpg" alt="Image" class="img-fluid">
+            <img src="/web/<%= dataProduct[0].image_pd %>" alt="Image" class="img-fluid">
           </div>
+          
+
 
           <div class="col-md-6">
             <form action="/cart" method="post">
@@ -122,7 +126,7 @@
               <% for( let index = 0; index < dataProduct.length; index++ ) { %>
                 <% if (dataProduct[index].quantity>0) { %>
                   <label for="option<%= dataProduct[index].size %>" class="d-flex mr-3 mb-3">
-                    <span class="d-inline-block mr-2" style="top:-2px; position: relative;"><input type="radio" id="option<%= dataProduct[index].size %>" value= <%=dataProduct[index].idProduct%>  name="id"></span> <span class="d-inline-block text-black"><%= dataProduct[index].size %> </span>
+                    <span class="d-inline-block mr-2" style="top:-2px; position: relative;"><input required type="radio" id="option<%= dataProduct[index].size %>" value= <%=dataProduct[index].idProduct%>  name="id"></span> <span class="d-inline-block text-black"><%= dataProduct[index].size %> </span>
                     
                   </label>
                 <% } %>
@@ -174,66 +178,23 @@
         <div class="row">
           <div class="col-md-12">
             <div class="nonloop-block-3 owl-carousel">
-              <div class="item">
-                <div class="block-4 text-center">
-                  <figure class="block-4-image">
-                    <img src="/web/images/cloth_1.jpg" alt="Image placeholder" class="img-fluid">
-                  </figure>
-                  <div class="block-4-text p-4">
-                    <h3><a href="#">Tank Top</a></h3>
-                    <p class="mb-0">Finding perfect t-shirt</p>
-                    <p class="text-primary font-weight-bold">$50</p>
+              <% for( let index = 0; index < dataItem.length; index++ ) { %>
+                <div class="item">
+                  <div class="block-4 text-center">
+                    <figure class="block-4-image">
+                      <img src="/web/<%= dataItem[index].image_pd %> " alt="Image placeholder" class="img-fluid">
+                    </figure>
+                    <div class="block-4-text p-4">
+                      <h3><a href="/shop-single/<%= dataItem[index].idProducts %> "><%= dataItem[index].name%> </a></h3>
+                      <p class="mb-0"><%= dataItem[index].manufacturer%> </p>
+                      <p class="text-primary font-weight-bold">$<%= dataItem[index].price %> </p>
+                    </div>
                   </div>
                 </div>
-              </div>
-              <div class="item">
-                <div class="block-4 text-center">
-                  <figure class="block-4-image">
-                    <img src="/web/images/shoe_1.jpg" alt="Image placeholder" class="img-fluid">
-                  </figure>
-                  <div class="block-4-text p-4">
-                    <h3><a href="#">Corater</a></h3>
-                    <p class="mb-0">Finding perfect products</p>
-                    <p class="text-primary font-weight-bold">$50</p>
-                  </div>
-                </div>
-              </div>
-              <div class="item">
-                <div class="block-4 text-center">
-                  <figure class="block-4-image">
-                    <img src="/web/images/cloth_2.jpg" alt="Image placeholder" class="img-fluid">
-                  </figure>
-                  <div class="block-4-text p-4">
-                    <h3><a href="#">Polo Shirt</a></h3>
-                    <p class="mb-0">Finding perfect products</p>
-                    <p class="text-primary font-weight-bold">$50</p>
-                  </div>
-                </div>
-              </div>
-              <div class="item">
-                <div class="block-4 text-center">
-                  <figure class="block-4-image">
-                    <img src="/web/images/cloth_3.jpg" alt="Image placeholder" class="img-fluid">
-                  </figure>
-                  <div class="block-4-text p-4">
-                    <h3><a href="#">T-Shirt Mockup</a></h3>
-                    <p class="mb-0">Finding perfect products</p>
-                    <p class="text-primary font-weight-bold">$50</p>
-                  </div>
-                </div>
-              </div>
-              <div class="item">
-                <div class="block-4 text-center">
-                  <figure class="block-4-image">
-                    <img src="/web/images/shoe_1.jpg" alt="Image placeholder" class="img-fluid">
-                  </figure>
-                  <div class="block-4-text p-4">
-                    <h3><a href="#">Corater</a></h3>
-                    <p class="mb-0">Finding perfect products</p>
-                    <p class="text-primary font-weight-bold">$50</p>
-                  </div>
-                </div>
-              </div>
+              <% } %>
+              
+             
+        
             </div>
           </div>
         </div>
